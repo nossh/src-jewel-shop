@@ -40,8 +40,8 @@
 <body>
 
 
-  <!-- MAIN HEADER -->
-  <header id="srcjHeader" class="srcj-header">
+<!-- MAIN HEADER -->
+<header id="srcjHeader" class="srcj-header">
   <!-- Menu Bar Starts -->
 <div class="ih-inner">
   <div class="container-fluid">
@@ -69,7 +69,24 @@
               </form>
             </div>
           </li>
-          <li><a href="login.html"><i class="fal fa-user"></i></a></li>
+
+          @if (Route::has('login'))
+                    @auth
+                       <li><a href="{{ route('dashboard') }}"><i class="fal fa-tachometer"></i></a></li> 
+
+                    @else
+                    <li><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
+
+                        @if (Route::has('register'))
+                        {{-- <li><a href="{{ route('register') }}"><i class="fal fa-user"></i></a></li> --}}
+                            
+                        @endif
+                    @endauth
+            @endif
+
+          
+
+
           <li><a href="{{route("wish-list")}}"><i class="fal fa-heart"></i> <span>1</span></a></li>
           <li><a href="{{route("cart")}}"><i class="fal fa-shopping-bag"></i> <span>1</span></a></li>
         </ul>
@@ -95,33 +112,20 @@
 
 
 
-  
-
-
-
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".menu-handle").click(function(e){
-        $(".site-menu").toggleClass("open-mobmenu");
-        $(".menu-handle").toggleClass("mm-ctrl");
-    });
-
-    $("#hdrSearch").click(function(e){
-      $(".header-search-wrapper").slideToggle();
-    });
-  });
-</script>
-
-
-
 
 @yield("content")
 
 
 
 
-<div class="container-fluid">
+
+
+
+
+
+<!-- FOOTER -->
+<footer id="footer" class="srcj-footer">
+  <div class="container-fluid">
   <div class="ft-top text-center">
     <img src="imgs/logo-footer.svg" class="img-srcj ft-logo"/>
 
@@ -176,6 +180,29 @@
 <!--/NOTIFICATION-->
 
 
+<!-- /FOOTER -->
+</footer>  
+
+  
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".menu-handle").click(function(e){
+        $(".site-menu").toggleClass("open-mobmenu");
+        $(".menu-handle").toggleClass("mm-ctrl");
+    });
+
+    $("#hdrSearch").click(function(e){
+      $(".header-search-wrapper").slideToggle();
+    });
+  });
+</script>
+
 <script>
   $(".close-notification").click(function(){
     $(".notification-wrapper").fadeOut();
@@ -185,17 +212,6 @@
 
 
 
-<!-- FOOTER -->
-  <footer id="footer" class="srcj-footer"></footer>
-  <!-- /FOOTER -->
-  
-
-  
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
   <script>
 	// When the user scrolls down 50px from the top of the document, resize the header's font size
 	window.onscroll = function() {scrollFunction()};
@@ -208,14 +224,14 @@
 	  }
 	}
   </script>
-  <script type="text/javascript">
+  {{-- <script type="text/javascript">
     $(function(){
       $("#srcjHeader").load("header.html");
       $("#footer").load("footer.html");
       $("#srcjBlog").load("blog-section.html");
       $("#userReviews").load("user-reviews.html");
     });
-  </script>
+  </script> --}}
   <script>
     $(document).ready(function() {
        var owl = $('.home-slider');

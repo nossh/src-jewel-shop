@@ -34,11 +34,18 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+{{-- Importing Vite resources --}}
+{{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+{{-- @routes --}}
+  {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+ {{--  @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
+@inertiaHead --}}
 </head>
 
-<body>
+<body class="font-sans antialiased">
+        {{-- @inertia --}}
 
+<div id="app2">
 
 <!-- MAIN HEADER -->
 <header id="srcjHeader" class="srcj-header">
@@ -184,7 +191,7 @@
 </footer>  
 
   
-
+</div>
   <!-- Bootstrap core JavaScript -->
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>

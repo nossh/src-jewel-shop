@@ -85,240 +85,50 @@
     <div class="container-fluid">
 
       <ul class="row product-list">
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-200ms">
-          <div class="product-box">
-            <div class="product-img">
-              <span class="prod-label outofstock">Out of stock</span>
-              <img src="imgs/products/1.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
+        @if(isset($products))
+          @foreach($products as $product)
+            <li class="col-lg-3 col-sm-6 wow slideInUp delay-200ms">
+              <div class="product-box">
+                <div class="product-img">
+                  @if($product->stock_status == 'in')
+                    <span class="prod-label hotproduct">Hot Product</span>
+                    @else
+                    <span class="prod-label outofstock">Out of stock</span>
+                  @endif
+                  <img src="imgs/products/{{ $product->image_name }}" class="img-srcj"/>
+                  <div class="product-actions-wrapper">
+                    <ul class="product-actions">
+                      <li><a href="{{route('shop-details')}}"><i class="far fa-long-arrow-right"></i></a></li>
+                      <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
+                      <li><add-to-cart-button><add-to-cart-button/></li>
+                    </ul>
+                  </div>
                 </div>
-                <span class="reviews-disp">(0 Reviews)</span>
-              </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-400ms">
-          <div class="product-box">
-            <div class="product-img">
-              <span class="prod-label discount">-10%</span>
-              <span class="prod-label hotproduct">Hot Product</span>
-              <img src="imgs/products/2.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
+                <div class="product-det">
+                  <div class="rate-review">
+                    <div class="star-rate-display">
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star-half-alt"></i></span>
+                    </div>
+                    <span class="reviews-disp">(0 Reviews)</span>
+                  </div>
+                  <span class="product-name">{{ $product->name }}</span>
+                  <span class="product-price">
+                    <h6>
+                      <span>${{ number_format($product->price) }}</span>
+                      ${{ number_format($product->sale_price) }}
+                    </h6>
+
+                      ${{ number_format($product->sale_price) }}
+                  </span>
                 </div>
-                <span class="reviews-disp">(0 Reviews)</span>
               </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-600ms">
-          <div class="product-box">
-            <div class="product-img">
-              <span class="prod-label discount">-10%</span>
-              <span class="prod-label hotproduct">Hot Product</span>
-              <img src="imgs/products/3.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
-                </div>
-                <span class="reviews-disp">(0 Reviews)</span>
-              </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-800ms">
-          <div class="product-box">
-            <div class="product-img">
-              <img src="imgs/products/4.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
-                </div>
-                <span class="reviews-disp">(0 Reviews)</span>
-              </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-200ms">
-          <div class="product-box">
-            <div class="product-img">
-              <span class="prod-label outofstock">Out of stock</span>
-              <img src="imgs/products/5.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
-                </div>
-                <span class="reviews-disp">(0 Reviews)</span>
-              </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-400ms">
-          <div class="product-box">
-            <div class="product-img">
-              <span class="prod-label discount">-10%</span>
-              <span class="prod-label hotproduct">Hot Product</span>
-              <img src="imgs/products/6.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
-                </div>
-                <span class="reviews-disp">(0 Reviews)</span>
-              </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-600ms">
-          <div class="product-box">
-            <div class="product-img">
-              <span class="prod-label discount">-10%</span>
-              <span class="prod-label hotproduct">Hot Product</span>
-              <img src="imgs/products/7.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
-                </div>
-                <span class="reviews-disp">(0 Reviews)</span>
-              </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
-        <li class="col-lg-3 col-sm-6 wow slideInUp delay-800ms">
-          <div class="product-box">
-            <div class="product-img">
-              <img src="imgs/products/8.jpg" class="img-srcj"/>
-              <div class="product-actions-wrapper">
-                <ul class="product-actions">
-                  <li><a href="shop-details.html"><i class="far fa-long-arrow-right"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-heart"></i></a></li>
-                  <li><a href="javacript:void(0);"><i class="far fa-search"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="product-det">
-              <div class="rate-review">
-                <div class="star-rate-display">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star-half-alt"></i></span>
-                </div>
-                <span class="reviews-disp">(0 Reviews)</span>
-              </div>
-              <span class="product-name">LARGE CHARLOTTE HOOPS</span>
-              <span class="product-price">$214.00</span>
-            </div>
-          </div>
-        </li>
+            </li>
+          @endforeach
+        @endif
       </ul>
 
       <div class="text-center mt-std">
